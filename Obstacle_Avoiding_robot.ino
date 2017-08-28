@@ -5,8 +5,8 @@
  *  This is a autonomous robot whicch avoids obstacles found in path
  */
 
-int trig2=11,echo2=10 ;
-int LMA=2,LMB=3,RMA=4,RMB=5;
+int trig = 3, echo = 2;
+int LMA=8,LMB=9,RMA=10,RMB=11;
 int pos = 90; 
 float distance, duration  ;
  
@@ -16,21 +16,21 @@ void setup()
   pinMode(LMB,OUTPUT);
   pinMode(RMA,OUTPUT);
   pinMode(RMB,OUTPUT);
-  pinMode(trig2,OUTPUT);
-  pinMode(echo2,INPUT);
+  pinMode(trig,OUTPUT);
+  pinMode(echo,INPUT);
   Serial.begin(9600);
 }
 void loop() 
 {
-  digitalWrite(trig2,LOW);   
+  digitalWrite(trig,LOW);   
   delay(2);
-  digitalWrite(trig2,HIGH);
+  digitalWrite(trig,HIGH);
   delay(10);
-  digitalWrite(trig2,LOW);
-  duration = pulseIn(echo2,HIGH);
+  digitalWrite(trig,LOW);
+  duration = pulseIn(echo,HIGH);
   distance = (duration/2)/29.1;
-  Serial.print(distance);
-  Serial.println();
+//  Serial.print(distance);
+//  Serial.println();
   delay(100);
   
 
@@ -48,7 +48,6 @@ void loop()
 
     Serial.println("");
     Serial.println("Obstacle ");
-    digitalWrite(LED,LOW);
     digitalWrite(RMA,HIGH);
     digitalWrite(RMB,HIGH);  //stop
     digitalWrite(LMA,HIGH);
